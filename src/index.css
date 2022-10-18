@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Hurricane&family=Lato:wght@300&family=Open+Sans:wght@300&family=Roboto:ital,wght@0,100;0,300;1,100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hurricane&family=Lato:wght@300&family=Open+Sans:wght@300&family=Roboto:ital,wght@0,100;0,300;1,100&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+svg {
+  cursor: pointer;
+}
+
+.side-nav * {
+  color: #fff;
+}
+.side-nav .round_image img {
+  width: 60px;
+  height: 60px;
+}
+.side-nav .list_container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  background: #3D3C42;
+  height: 100vh;
+}
+.side-nav .list_container li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px 0;
+  list-style: none;
+  place-items: center;
+}
+.side-nav .list_container li span {
+  font-size: 0.7em;
+}
+.side-nav .list_container li:hover {
+  background: white;
+}
+.side-nav .list_container li:hover * {
+  color: #000;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 200px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px, rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
+}
+.card .header {
+  width: 100%;
+  height: 80px;
+  background: green;
+}
+.card .body {
+  padding: 10px;
+}
+.card .body .text_container * {
+  text-align: left;
+}
+.card .body .text_container h2 {
+  padding-bottom: 5px;
+  color: #256D85;
+  font-weight: 900;
+}
+.card .body .text_container h5, .card .body .text_container p {
+  font-size: 0.8em;
+}
+.card .body .icons {
+  padding-top: 10px;
+  display: flex;
+  gap: 1em;
+  justify-content: space-evenly;
+  place-items: center;
+}
+.card .body .icons svg {
+  font-size: 1em;
+}
+
+.profile .life_side {
+  padding: 10px;
+}
+.profile .life_side .information {
+  margin-top: 1.5em;
+  text-align: left;
+  font-size: 0.8em;
+}
+.profile .life_side .information .add_ {
+  color: #929AAB;
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+.profile .life_side .information .add_:after {
+  content: "________________________________";
+  display: inline-block;
+  width: 100px;
+  position: absolute;
+  padding-left: 5px;
+  text-transform: uppercase;
+}
+.profile .life_side .information .address {
+  padding-left: 1em;
+}
+.profile .life_side .information .address p {
+  display: list-item;
+  list-style-type: square;
+  tab-size: 2;
+}
+.profile .life_side section {
+  margin-top: 1.5em;
+}
+.profile .life_side section * {
+  text-align: left;
+}
+.profile .life_side section p {
+  margin-bottom: 0.3em;
+}
+.profile .life_side section p span {
+  padding-right: 1em;
+  font-size: 0.9em;
+  color: #929AAB;
+}
+.profile .main .section_top, .profile .main .accordion {
+  width: 100%;
+  height: 100%;
+}
+.profile .main .section_top {
+  text-align: left;
+}
+.profile .main .section_top .info_container {
+  padding: 15px 0;
+}
+.profile .main .section_top .info_container * {
+  text-align: left;
+}
+.profile .main .section_top .info_container h3 {
+  font-weight: bold;
+}
+.profile .main .section_top .info_container p {
+  font-size: 0.8em;
+}
+
+.accordion {
+  height: 100%;
+}
+.accordion li {
+  list-style: none;
+}
+.accordion .accordion-tabs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.accordion .accordion-tabs li {
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #B2B2B2;
+  cursor: pointer;
+}
+.accordion .accordion-tabs li:hover {
+  background: none !important;
+}
+.accordion .accordion-content .tab-section {
+  display: none;
+}
+.accordion .accordion-content .activate_section {
+  display: flex;
+}
+.accordion .accordion-content section {
+  width: 100%;
+  padding: 10px;
+}
+.accordion .accordion-content section .address {
+  padding: 10px;
+  border-bottom: 1px solid #B2B2B2;
+}
+.accordion .accordion-content section .address * {
+  text-align: left;
+}
+.accordion .accordion-content section .address span {
+  font-size: 0.8em;
+  padding-right: 1em;
+}
+.accordion .accordion-content section .address .address_container li {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1em;
+}
+.accordion .accordion-content section .address .address_container li p {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.accordion .accordion-content section .address .edit_container {
+  border-bottom: 1px dotted #B2B2B2;
+  width: 100%;
+  display: inline-flex;
+  gap: 1em;
+  justify-content: flex-end;
+  place-items: flex-end;
+}
+.accordion .accordion-content section .address .edit_container li svg {
+  color: #4C6793;
+}
+.accordion .accordion-content section .address .edit_container li:last-child > svg {
+  color: #FF1E1E;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: center;
+  scroll-behavior: smooth;
+  outline: none;
+  font-family: "Roboto", sans-serif;
+}
+
+svg {
+  font-size: 1.5em;
+  color: #000;
+}
+
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,262 @@
+@import "@_variable";
+
+svg {
+  cursor: pointer;
+}
+
+.side-nav {
+  * {
+    color: #fff;
+  }
+
+  .round_image {
+    img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  .list_container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    background: #3D3C42;
+    height: 100vh;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5px 0;
+      list-style: none;
+      place-items: center;
+
+      span {
+        font-size: .7em;
+      }
+
+      &:hover {
+        background: white;
+        * {
+          color: #000;
+        }
+      }
+    }
+  }
+
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 200px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px, rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
+
+  .header {
+    width: 100%;
+    height: 80px;
+    background: green;
+  }
+  .body {
+    padding: 10px;
+
+    .text_container {
+      * {
+        text-align: left;
+      }
+
+      h2 {
+        padding-bottom: 5px;
+        color: #256D85;
+        font-weight: 900;
+      }
+
+      h5, p {
+        font-size: .8em;
+      }
+    }
+
+    .icons {
+      padding-top: 10px;
+      display: flex;
+      gap: 1em;
+      justify-content: space-evenly;
+      place-items: center;
+
+      svg {
+        font-size: 1em;
+      }
+    }
+  }
+}
+
+.profile {
+
+  .life_side {
+    padding: 10px;
+
+    .information {
+      margin-top: 1.5em;
+      text-align: left;
+      font-size: .8em;
+
+      .add_ {
+        color: $fade_white;
+        text-transform: uppercase;
+        font-size: .8em;
+
+        &:after {
+          content: "________________________________";
+          display: inline-block;
+          width: 100px;
+          position: absolute;
+          padding-left: 5px;
+          text-transform: uppercase;
+        }
+      }
+
+      .address {
+        padding-left: 1em;
+
+        p {
+          display: list-item;
+          list-style-type: square;
+          tab-size: 2;
+        }
+      }
+    }
+
+    section {
+      margin-top: 1.5em;
+      * {
+        text-align: left;
+      }
+
+      p {
+        margin-bottom: .3em;
+        span {
+          padding-right: 1em;
+          font-size: .9em;
+          color: $fade_white;
+        }
+      }
+    }
+  }
+
+  .main {
+
+    .section_top, .accordion {
+      width: 100%;
+      height: 100%;
+    }
+    .section_top {
+      text-align: left;
+
+      .info_container {
+        padding: 15px 0;
+
+        * {
+          text-align: left;
+        }
+
+        h3 {
+          font-weight: bold;
+        }
+
+        p {
+          font-size: .8em;
+        }
+      }
+    }
+  }
+}
+
+.accordion {
+  height: 100%;
+
+  li {
+    list-style: none
+  }
+  .accordion-tabs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    li {
+      width: 100%;
+      text-align: left;
+      padding: 10px;
+      border-bottom: 1px solid #B2B2B2;
+      cursor: pointer;
+
+      &:hover {
+        background: none !important
+      }
+    }
+  }
+
+  .accordion-content {
+
+    .tab-section {
+      display: none;
+    }
+
+    .activate_section {
+      display: flex;
+    }
+
+    section {
+      width: 100%;
+      padding: 10px;
+
+      .address {
+        padding: 10px;
+        border-bottom: 1px solid #B2B2B2;
+
+        * {
+          text-align: left;
+        }
+
+        span {
+          font-size: .8em;
+          padding-right: 1em;
+        }
+
+        .address_container {
+
+          li {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1em;
+
+            p {
+              text-transform: uppercase;
+              font-size: 14px;
+            }
+          }
+        }
+
+        .edit_container {
+          border-bottom: 1px dotted #B2B2B2;
+          width: 100%;
+          display: inline-flex;
+          gap: 1em;
+          justify-content: flex-end;
+          place-items: flex-end;
+
+          li {
+            svg {
+              color: #4C6793;
+            }
+            &:last-child > svg {
+              color: #FF1E1E
+            }
+          }
+        }
+      }
+    }
+
+
+  }
+}
