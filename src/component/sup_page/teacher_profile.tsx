@@ -1,5 +1,6 @@
 import {PatternFormat} from "react-number-format";
 import {AiOutlineEdit, AiOutlineClose} from 'react-icons/ai'
+import {MdOutlineExpandMore, MdOutlineExpandLess} from 'react-icons/md'
 import {useAppDispatch, useAppStore} from "../../setup/academy/useReduxHook";
 import {accordion} from "../../util/accordion";
 
@@ -7,6 +8,7 @@ import image from "/src/assets/image/photo.jpg"
 import {useContext, useEffect} from "react";
 import {teacherAction} from "../../setup/academy/teacher_slice";
 import {DashboardContext} from "../../setup/context/Context";
+import {AddressForm} from "../reusable/form";
 
 export const Teacher_Profile = () => {
     const dashCtx = useContext(DashboardContext)
@@ -19,28 +21,41 @@ export const Teacher_Profile = () => {
         dashCtx.setActionType(action);
     }
 
+    const setActionType = () => {
+      dashCtx.setActionType('')
+    }
+
     useEffect(() => {
         accordion()
     }, [])
 
     return (
         <div className={`profile w-full`}>
-            <div className="layout grid grid-cols-12 gap-x-16">
-                <div className="life_side col-start-1 col-end-4">
+            <div className="layout grid sm:grid-cols-1 md:grid-cols-12 gap-x-16">
+                <div className="left_side sm:grid-cols-1 md:col-start-1 md:col-end-4">
                     <div className="image_container">
                         <img
-                            className="w-24 h-24 md:w-48 md:h-auto md:rounded-md rounded-full mx-aut"
+                            className="w-32 h-32 sm:!w-36 sm:!h-36 md:w-48 md:h-auto md:rounded-md rounded-full mx-auto"
                             src={image} alt="img"/>
+                        <h2 className='s:block s:mt-3 sm:block sm:mt-3 md:hidden'>{teacher.name}</h2>
+                        <p className='s:block sm:block md:hidden'>{auth.email}</p>
+                        <p className='s:block sm:block md:hidden'>Web Developer</p>
+
                     </div>
-                    <div className="information">
+                    <li className="accordion_toggle s:grid sm:grid md:hidden">
+                        <span>Show info</span>
+                        <MdOutlineExpandMore className='accordion-expand-more'/>
+                        <MdOutlineExpandLess className='accordion-expand-less hidden' />
+                    </li>
+                    <div className="information s:h-0.5 s:!w-3/4 s:m-8 md:!h-auto md:!opacity-100">
                         <span className={'add_'}>Information</span>
                         <section>
-                            <p className="info"><span>Name: </span>{teacher.name}</p>
+                            <p><span>Name: </span>{teacher.name}</p>
                             <p><span>Gender: </span>{teacher.gender} </p>
                             <p><span>Phone: </span>{teacher.phone}</p>
                         </section>
                     </div>
-                    <div className="information">
+                    <div className="information s:h-0.5 s:!w-3/4 s:m-8 md:!h-auto md:!opacity-100">
                         <span className={'add_'}>Addresses</span>
                         {
                             addresses.map((a, index) => {
@@ -54,17 +69,17 @@ export const Teacher_Profile = () => {
                             })
                         }
                     </div>
-                    <div className="information">
+                    <div className="information s:h-0.5 s:!w-3/4 s:m-8 md:!h-auto md:!opacity-100">
                         <span className={'add_'}>Skills</span>
                         <section>
-                            <p className="info"><span>Name: </span>{teacher.name}</p>
+                            <p><span>Name: </span>{teacher.name}</p>
                             <p><span>Gender: </span>{teacher.gender} </p>
                             <p><span>Phone: </span>{teacher.phone}</p>
                         </section>
                     </div>
-                </div>
-                <div className="main grid grid-cols-1 grid-cols-1 col-span-8">
-                    <div className="section_top">
+                    </div>
+                <div className="main grid grid-cols-1 md:col-span-8">
+                    <div className="section_top s:hidden s:z-0">
                         <div className="info_container">
                             <h3>{teacher.name}</h3>
                             <p>Web Developer</p>
@@ -73,51 +88,57 @@ export const Teacher_Profile = () => {
                     </div>
                     <div className="accordion w-full">
                         <section className="accordion-tabs">
-                            <li className="accordion-tab" data-actab-id={"1"}>Tab 1</li>
-                            <li className="accordion-tab" data-actab-id={"2"}>Edit</li>
-                            <li className="accordion-tab" data-actab-id = {"3"}>Tab 3</li>
-                            <li className="accordion-tab" data-actab-id = {"4"}>Edit Info</li>
+                            <li className="accordion-tab" data-actab-id='1' onClick={setActionType}>Course</li>
+                            <li className="accordion-tab" data-actab-id='2' onClick={setActionType}>Student</li>
+                            <li className="accordion-tab" data-actab-id='3' onClick={setActionType}>Staff</li>
+                            <li className="accordion-tab" data-actab-id='4' onClick={setActionType}>Edit</li>
                         </section>
                         <div className="accordion-content">
-                            <section className="tab-section activate_section" data-actab-id={"1"}>
+                            <section className="tab-section w-full activate_section" data-actab-id='1'>
                                 Tab 1
                             </section>
-                            <section className="tab-section" data-actab-id={"2"}>
+                            <section className="tab-section w-full" data-actab-id='2'>
                                 tab 2
                             </section>
-                            <section className="tab-section" data-actab-id={"3"}>
+                            <section className="tab-section w-full" data-actab-id='3'>
                                 Tab 3
                             </section>
-                            <section className="tab-section" data-actab-id={"4"}>
-                               <div className="container">
-                                   {
-                                       addresses.map((a, index) => {
-                                           return (
-                                               <section className="address !w-4/6" key={`${index}_${a.state}`}>
-                                                   <div className="edit_container">
-                                                       <li onClick={() => setSelectedAddress(a.addressID, 'editAddress')}>
-                                                           <AiOutlineEdit/>
-                                                       </li>
-                                                       <li onClick={() => setSelectedAddress(a.addressID, 'deleteAddress')}>
-                                                           <AiOutlineClose/>
-                                                       </li>
-                                                   </div>
-                                                   <div className="address_container">
-                                                       <section
-                                                           className=''
-                                                           key={`${a.state}_${index}`}
-                                                       >
-                                                           <li><span>Street: </span><p>{a.street}</p></li>
-                                                           <li><span>City: </span><p>{a.city}</p></li>
-                                                           <li><span>State: </span><p>{a.state}</p></li>
+                            <section className="tab-section w-full" data-actab-id='4'>
+                                {
+                                    dashCtx.getAction().actionType === '' ?
+                                        <div className="address_container s:!w-full">
+                                            {
+                                                addresses.map((a, index) => {
+                                                    return (
+                                                        <section className="address md:!w-4/6" key={`${index}_${a.state}`}>
+                                                            <div className="edit_container md:!w-2/6 md:float-right md:mb-4">
+                                                                <li onClick={() => setSelectedAddress(a.addressID, 'editAddress')}>
+                                                                    <AiOutlineEdit/>
+                                                                </li>
+                                                                <li onClick={() => setSelectedAddress(a.addressID, 'deleteAddress')}>
+                                                                    <AiOutlineClose/>
+                                                                </li>
+                                                            </div>
+                                                            <div className="address_container">
+                                                                <section
+                                                                    className=''
+                                                                    key={`${a.state}_${index}`}
+                                                                >
+                                                                    <li><span>Street: </span><p>{a.street}</p></li>
+                                                                    <li><span>City: </span><p>{a.city}</p></li>
+                                                                    <li><span>State: </span><p>{a.state}</p></li>
+                                                                </section>
+                                                            </div>
+                                                        </section>
+                                                    )
+                                                })
+                                            }
+                                        </div>
+                                        : dashCtx.getAction().actionType === 'editAddress' ?
+                                        <AddressForm title='Update Address' btnText='Update'/>
+                                        : <h1></h1>
+                                }
 
-                                                       </section>
-                                                   </div>
-                                               </section>
-                                           )
-                                       })
-                                   }
-                               </div>
                             </section>
                         </div>
                     </div>

@@ -1,4 +1,10 @@
 
+interface Address {
+    street?: string;
+    city?: string;
+    state?: string;
+}
+
 export interface TeacherInitialState {
     teacher: {
         id: number,
@@ -14,7 +20,7 @@ export interface TeacherInitialState {
         password: string
     }
     addresses: any[],
-    address: {},
+    address: Address,
     message: any,
     error: any
 }

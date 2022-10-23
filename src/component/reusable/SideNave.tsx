@@ -13,9 +13,11 @@ export const SideNave = () => {
     const dash = useContext(DashboardContext)
 
     return (
-        <div className="side-nav col-start-1 col-end-2 pt-2">
-            <div className="list_container">
-                <li className={"round_image"}
+        // md:h-screen grid md:col-start-1 md:col-end-2  md:pt-2
+        <div className="side-nav md:h-screen md:col-start-1 md:col-end-2 md:pt-2">
+            {/*md:grid sm:flex md:grid-cols-1 sm:justify-evenly  sm:pl-1 sm:pr-2*/}
+            <div className="list_container flex md:grid sm:justify-evenly sm:pl-2 sm:pr-2">
+                <li className={"round_image w-full"}
                     onClick={
                         () => nav("/teacher/profile")}
                 >
@@ -26,31 +28,36 @@ export const SideNave = () => {
                     />
                     <span>Account</span>
                 </li>
-                <li onClick={
+                <li className="w-full"
+                    onClick={
                     () => dash.setActionType("dashboard")}
                 >
                     <RiDashboardFill/>
                     <span>Dashboard</span>
                 </li>
-                <li onClick={
+                <li className="w-full"
+                    onClick={
                     () => dash.setActionType("courses")}
                 >
                     <GoBook/>
                     <span>Courses</span>
                 </li>
-                <li onClick={
+                <li className="w-full"
+                    onClick={
                     () => dash.setActionType("group")}
                 >
                     <BsPeopleFill/>
                     <span>Groups</span>
                 </li>
-                <li onClick={
+                <li className="w-full"
+                    onClick={
                     () => dash.setActionType("calendar")}
                 >
                     <GoCalendar/>
                     <span>Calendar</span>
                 </li>
-                <li onClick={
+                <li className="w-full"
+                    onClick={
                     () => dash.setActionType("inbox")}
                 >
                     <FiInbox/>

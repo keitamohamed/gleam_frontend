@@ -3,10 +3,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #4d4d4d;
+  font-size: 1.2em;
+}
+
 svg {
   cursor: pointer;
 }
 
+.side-nav {
+  background: #3D3C42;
+}
 .side-nav * {
   color: #fff;
 }
@@ -15,11 +27,7 @@ svg {
   height: 60px;
 }
 .side-nav .list_container {
-  display: flex;
-  flex-direction: column;
   gap: 1em;
-  background: #3D3C42;
-  height: 100vh;
 }
 .side-nav .list_container li {
   display: flex;
@@ -42,8 +50,8 @@ svg {
 .card {
   display: flex;
   flex-direction: column;
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  height: auto;
   box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px, rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
 }
 .card .header {
@@ -76,20 +84,46 @@ svg {
   font-size: 1em;
 }
 
-.profile .life_side {
+.profile .left_side {
   padding: 10px;
 }
-.profile .life_side .information {
-  margin-top: 1.5em;
+.profile .left_side .image_container p {
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  color: #929AAB;
+}
+.profile .left_side .accordion_toggle {
+  width: 90%;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 2px;
+  margin-top: 1em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  justify-content: flex-end;
+  place-items: flex-end;
+  grid-gap: 1em;
+  border-bottom: 1px solid #B2B2B2;
+}
+.profile .left_side .accordion_toggle span {
+  text-align: left;
+  width: 100%;
+}
+.profile .left_side .accordion_toggle svg {
+  float: right;
+}
+.profile .left_side .information {
+  margin-top: 0;
   text-align: left;
   font-size: 0.8em;
+  opacity: 0;
+  height: 0;
 }
-.profile .life_side .information .add_ {
+.profile .left_side .information .add_ {
   color: #929AAB;
   text-transform: uppercase;
   font-size: 0.8em;
 }
-.profile .life_side .information .add_:after {
+.profile .left_side .information .add_:after {
   content: "________________________________";
   display: inline-block;
   width: 100px;
@@ -97,24 +131,33 @@ svg {
   padding-left: 5px;
   text-transform: uppercase;
 }
-.profile .life_side .information .address {
+.profile .left_side .information .address {
   padding-left: 1em;
 }
-.profile .life_side .information .address p {
+.profile .left_side .information .address p {
   display: list-item;
   list-style-type: square;
   tab-size: 2;
 }
-.profile .life_side section {
+.profile .left_side .information.activate {
+  margin-top: 1.5em;
+  opacity: 1;
+  height: 90px;
+  transition: height 0.5s ease, padding-top 0.5s ease, padding-bottom 0.5s ease;
+}
+.profile .left_side .information.activate .add_:after {
+  content: "";
+}
+.profile .left_side section {
   margin-top: 1.5em;
 }
-.profile .life_side section * {
+.profile .left_side section * {
   text-align: left;
 }
-.profile .life_side section p {
+.profile .left_side section p {
   margin-bottom: 0.3em;
 }
-.profile .life_side section p span {
+.profile .left_side section p span {
   padding-right: 1em;
   font-size: 0.9em;
   color: #929AAB;
@@ -141,30 +184,38 @@ svg {
 
 .accordion {
   height: 100%;
+  z-index: 1;
 }
 .accordion li {
   list-style: none;
 }
 .accordion .accordion-tabs {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.accordion .accordion-tabs li {
-  width: 100%;
-  text-align: left;
-  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-evenly;
+  place-items: center;
   border-bottom: 1px solid #B2B2B2;
-  cursor: pointer;
 }
-.accordion .accordion-tabs li:hover {
-  background: none !important;
+.accordion .accordion-tabs .accordion-tab {
+  width: fit-content;
+  cursor: pointer;
+  padding: 5px 10px;
+  color: #929AAB;
+}
+.accordion .accordion-tabs .accordion-tab:hover {
+  background: #2C3333;
+  color: #fff;
 }
 .accordion .accordion-content .tab-section {
   display: none;
+  width: 100%;
 }
 .accordion .accordion-content .activate_section {
   display: flex;
+  width: 100%;
+}
+.accordion .accordion-content .activate_section * {
+  width: 100%;
 }
 .accordion .accordion-content section {
   width: 100%;
@@ -172,7 +223,7 @@ svg {
 }
 .accordion .accordion-content section .address {
   padding: 10px;
-  border-bottom: 1px solid #B2B2B2;
+  border-bottom: 1px dotted #B2B2B2;
 }
 .accordion .accordion-content section .address * {
   text-align: left;
@@ -203,6 +254,46 @@ svg {
 }
 .accordion .accordion-content section .address .edit_container li:last-child > svg {
   color: #FF1E1E;
+}
+.accordion .form-container {
+  padding: 15px;
+}
+.accordion .form-container .title-container {
+  padding-bottom: 15px;
+}
+.accordion .form-container .title-container h3 {
+  text-transform: uppercase;
+  font-size: 15px;
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+  border-bottom: 1px dotted #B2B2B2;
+}
+.accordion .form-container form {
+  padding: 10px;
+}
+.accordion .form-container form .form-group {
+  width: 100%;
+}
+.accordion .form-container form .form-group input {
+  text-align: left;
+  width: 100%;
+  border-bottom: 1px solid #B2B2B2;
+  margin-bottom: 0.5em;
+  padding: 2px;
+  font-size: 1em;
+}
+.accordion .form-container form .form-group input[type=submit] {
+  border: 1px solid #B2B2B2;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 20px;
+  margin-top: 1em;
+  cursor: pointer;
+}
+.accordion .form-container form .form-group input[type=submit]:hover {
+  background: #2C3333;
+  color: #fff;
 }
 
 html {

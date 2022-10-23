@@ -16,3 +16,10 @@ export interface DashboardProperty {
     setActionProp: (props: DashboardStateProps) => void,
     setActionType: (action: string) => void
 }
+
+export interface FormProps {
+    title?: string
+    btnText?: string
+    actionType?: string
+    action?: string
+}
