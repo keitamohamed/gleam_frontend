@@ -295,6 +295,9 @@ svg {
   background: #2C3333;
   color: #fff;
 }
+.accordion .form-container form .message p {
+  color: #54B435;
+}
 
 html {
   -webkit-text-size-adjust: 100%;

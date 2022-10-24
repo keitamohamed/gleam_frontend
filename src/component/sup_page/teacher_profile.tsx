@@ -27,7 +27,7 @@ export const Teacher_Profile = () => {
 
     useEffect(() => {
         accordion()
-    }, [])
+    }, [teacher, addresses])
 
     return (
         <div className={`profile w-full`}>
@@ -127,6 +127,7 @@ export const Teacher_Profile = () => {
                                                                     <li><span>Street: </span><p>{a.street}</p></li>
                                                                     <li><span>City: </span><p>{a.city}</p></li>
                                                                     <li><span>State: </span><p>{a.state}</p></li>
+                                                                    <li><span>Zip code: </span><p>{a.zip}</p></li>
                                                                 </section>
                                                             </div>
                                                         </section>

@@ -49,6 +49,10 @@ const teacherSlice = createSlice({
         setAddresses: (state, action) => {
             state.addresses = action.payload[0].address
         },
+        onChangeAddress: (state, action) => {
+            const inputValue = action.payload
+            state.address[inputValue.name as keyof Object] = inputValue.value
+        },
         setSelectedAddress: (state, action) => {
             state.address = action.payload
         },

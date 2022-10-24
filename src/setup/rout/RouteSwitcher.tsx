@@ -19,7 +19,7 @@ const RouteSwitcher = () => {
                                         {...route}
                                         element={isAuthenticate ?
                                                 <route.component />:
-                                            <Navigate replace to={"/"}/>}
+                                            <Navigate replace to={"/index"}/>}
                                     />
                             ) : <Route key={`${route.name}_${index}`} path={route.path} element={<route.component/>}/>
                         )

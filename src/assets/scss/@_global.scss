@@ -366,6 +366,12 @@ svg {
           }
         }
       }
+
+      .message {
+         p {
+           color: $color_green;
+         }
+      }
     }
   }
 }
