@@ -9,6 +9,19 @@ input:-webkit-autofill:active {
   font-size: 1.2em;
 }
 
+.btn_container {
+  border-bottom: 1px dotted $border_color;
+  padding: 10px;
+  display: inline-block;
+
+  svg {
+    font-size: 1.5em;
+    &:hover {
+      color: $fade_white;
+    }
+  }
+}
+
 svg {
   cursor: pointer;
 }
@@ -170,7 +183,7 @@ svg {
     .information.activate {
       margin-top: 1.5em;
       opacity: 1;
-      height: 90px;
+      height: auto;
       transition: height 0.5s ease, padding-top 0.5s ease, padding-bottom 0.5s ease;
 
       .add_:after {

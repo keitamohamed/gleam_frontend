@@ -1,11 +1,12 @@
-import {PatternFormat} from "react-number-format";
+import {useContext, useEffect} from "react";
+
 import {AiOutlineEdit, AiOutlineClose} from 'react-icons/ai'
+import {FaAddressBook} from 'react-icons/fa'
 import {MdOutlineExpandMore, MdOutlineExpandLess} from 'react-icons/md'
 import {useAppDispatch, useAppStore} from "../../setup/academy/useReduxHook";
-import {accordion} from "../../util/accordion";
 
+import {accordion} from "../../util/accordion";
 import image from "/src/assets/image/photo.jpg"
-import {useContext, useEffect} from "react";
 import {teacherAction} from "../../setup/academy/teacher_slice";
 import {DashboardContext} from "../../setup/context/Context";
 import {AddressForm} from "../reusable/form";
@@ -16,8 +17,10 @@ export const Teacher_Profile = () => {
     const {teacher, addresses, auth} = useAppStore((state) => state.teacher)
 
     const setSelectedAddress = (id: number, action: string) => {
-        const location = addresses.find(a => a.addressID == id);
-        dispatch(teacherAction.setSelectedAddress(location))
+        if (id !== 0) {
+            const location = addresses.find(a => a.addressID == id);
+            dispatch(teacherAction.setSelectedAddress(location))
+        }
         dashCtx.setActionType(action);
     }
 
@@ -107,6 +110,11 @@ export const Teacher_Profile = () => {
                                 {
                                     dashCtx.getAction().actionType === '' ?
                                         <div className="address_container s:!w-full">
+                                            <div className="btn_container">
+                                                <li onClick={() => setSelectedAddress(0, 'newAddress')}>
+                                                    <FaAddressBook/>
+                                                </li>
+                                            </div>
                                             {
                                                 addresses.map((a, index) => {
                                                     return (
@@ -137,7 +145,7 @@ export const Teacher_Profile = () => {
                                         </div>
                                         : dashCtx.getAction().actionType === 'editAddress' ?
                                         <AddressForm title='Update Address' btnText='Update'/>
-                                        : <h1></h1>
+                                        : <AddressForm title='New Address' btnText='Submit'/>
                                 }
 
                             </section>

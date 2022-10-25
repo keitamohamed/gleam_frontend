@@ -12,6 +12,18 @@ input:-webkit-autofill:active {
   font-size: 1.2em;
 }
 
+.btn_container {
+  border-bottom: 1px dotted #B2B2B2;
+  padding: 10px;
+  display: inline-block;
+}
+.btn_container svg {
+  font-size: 1.5em;
+}
+.btn_container svg:hover {
+  color: #929AAB;
+}
+
 svg {
   cursor: pointer;
 }
@@ -142,7 +154,7 @@ svg {
 .profile .left_side .information.activate {
   margin-top: 1.5em;
   opacity: 1;
-  height: 90px;
+  height: auto;
   transition: height 0.5s ease, padding-top 0.5s ease, padding-bottom 0.5s ease;
 }
 .profile .left_side .information.activate .add_:after {
