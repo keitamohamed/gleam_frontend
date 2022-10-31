@@ -65,12 +65,16 @@ svg {
 
 }
 
+.card_container {
+  display: grid;
+}
+
 .card {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: auto;
-  box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px, rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
+  box-shadow: $box-shadow;
 
   .header {
     width: 100%;
@@ -105,6 +109,61 @@ svg {
 
       svg {
         font-size: 1em;
+      }
+    }
+  }
+}
+
+.card_c {
+  border: 1px solid $border_color;
+  padding: 5px 10px;
+  box-shadow: $box-shadow;
+
+  * {
+    font-family: $font-family-roboto;
+    font-size: 15px;
+  }
+
+  .header {
+    width: 100%;
+    padding: 8px 0;
+
+    h3 {
+
+    }
+
+    li {
+      text-align: left;
+      padding-bottom: 5px;
+      color: $fade_white;
+    }
+  }
+
+  .main {
+
+    .body {
+
+      p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+
+        &:hover {
+          -webkit-line-clamp: min(100)
+        }
+      }
+
+      li {
+        text-align: left;
+        font-weight: bold;
+        font-size: 1.6em;
+
+        span {
+          color: $fade_white;
+        }
       }
     }
   }
@@ -272,7 +331,7 @@ svg {
     }
 
     .activate_section {
-      display: flex;
+      display: grid;
       width: 100%;
 
       * {

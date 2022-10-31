@@ -10,11 +10,14 @@ import image from "/src/assets/image/photo.jpg"
 import {teacherAction} from "../../setup/academy/teacher_slice";
 import {DashboardContext} from "../../setup/context/Context";
 import {AddressForm} from "../reusable/form";
+import {useTeacher} from "../../hook/useTeacher";
+import {Card} from "../reusable/card_c";
 
 export const Teacher_Profile = () => {
+    const {deleteAddress} = useTeacher()
     const dashCtx = useContext(DashboardContext)
     const dispatch = useAppDispatch()
-    const {teacher, addresses, auth} = useAppStore((state) => state.teacher)
+    const {teacher, addresses, auth, courses} = useAppStore((state) => state.teacher)
 
     const setSelectedAddress = (id: number, action: string) => {
         if (id !== 0) {
@@ -42,7 +45,7 @@ export const Teacher_Profile = () => {
                             src={image} alt="img"/>
                         <h2 className='s:block s:mt-3 sm:block sm:mt-3 md:hidden'>{teacher.name}</h2>
                         <p className='s:block sm:block md:hidden'>{auth.email}</p>
-                        <p className='s:block sm:block md:hidden'>Web Developer</p>
+                        <p className='s:block sm:block md:hidden'>{courses[0]?.name}</p>
 
                     </div>
                     <li className="accordion_toggle s:grid sm:grid md:hidden">
@@ -75,9 +78,11 @@ export const Teacher_Profile = () => {
                     <div className="information s:h-0.5 s:!w-3/4 s:m-8 md:!h-auto md:!opacity-100">
                         <span className={'add_'}>Skills</span>
                         <section>
-                            <p><span>Name: </span>{teacher.name}</p>
-                            <p><span>Gender: </span>{teacher.gender} </p>
-                            <p><span>Phone: </span>{teacher.phone}</p>
+                            {
+                                courses.map((course, index) => {
+                                    return <p key={`${course.id}_${index}`}>{course.name}</p>
+                                })
+                            }
                         </section>
                     </div>
                     </div>
@@ -97,8 +102,18 @@ export const Teacher_Profile = () => {
                             <li className="accordion-tab" data-actab-id='4' onClick={setActionType}>Edit</li>
                         </section>
                         <div className="accordion-content">
-                            <section className="tab-section w-full activate_section" data-actab-id='1'>
-                                Tab 1
+                            <section className="tab-section card_container  s:grid-cols-1 sm:grid-cols-2 w-full activate_section"
+                                     data-actab-id='1'>
+                                {
+                                    courses.map((course, index) => {
+                                        return <Card
+                                            key={`${course.id}_${index}`}
+                                            id={course.id}
+                                            name={course.name}
+                                            description={course.description}
+                                            credit={course.credit}/>
+                                    })
+                                }
                             </section>
                             <section className="tab-section w-full" data-actab-id='2'>
                                 tab 2
@@ -123,7 +138,7 @@ export const Teacher_Profile = () => {
                                                                 <li onClick={() => setSelectedAddress(a.addressID, 'editAddress')}>
                                                                     <AiOutlineEdit/>
                                                                 </li>
-                                                                <li onClick={() => setSelectedAddress(a.addressID, 'deleteAddress')}>
+                                                                <li onClick={() => deleteAddress(a.addressID)}>
                                                                     <AiOutlineClose/>
                                                                 </li>
                                                             </div>

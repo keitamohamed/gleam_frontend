@@ -59,6 +59,10 @@ svg {
   color: #000;
 }
 
+.card_container {
+  display: grid;
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -94,6 +98,44 @@ svg {
 }
 .card .body .icons svg {
   font-size: 1em;
+}
+
+.card_c {
+  border: 1px solid #B2B2B2;
+  padding: 5px 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px, rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
+}
+.card_c * {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+}
+.card_c .header {
+  width: 100%;
+  padding: 8px 0;
+}
+.card_c .header li {
+  text-align: left;
+  padding-bottom: 5px;
+  color: #929AAB;
+}
+.card_c .main .body p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.card_c .main .body p:hover {
+  -webkit-line-clamp: 100;
+}
+.card_c .main .body li {
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.6em;
+}
+.card_c .main .body li span {
+  color: #929AAB;
 }
 
 .profile .left_side {
@@ -223,7 +265,7 @@ svg {
   width: 100%;
 }
 .accordion .accordion-content .activate_section {
-  display: flex;
+  display: grid;
   width: 100%;
 }
 .accordion .accordion-content .activate_section * {

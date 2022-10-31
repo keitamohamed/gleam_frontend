@@ -23,3 +23,11 @@ export interface FormProps {
     actionType?: string
     action?: string
 }
+
+export interface CardProps {
+    id?: number
+    name?: string,
+    description?: string,
+    credit?: number
+
+}

@@ -6,7 +6,7 @@ import {teacherAction} from "../../setup/academy/teacher_slice";
 export const AddressForm = (pros: FormProps) => {
     const dispatch = useAppDispatch()
     const {teacher, address, message} = useAppStore((state) => state.teacher)
-    const {updateAddress, findTeacherByID} = useTeacher()
+    const {newAddress, updateAddress, findTeacherByID} = useTeacher()
 
     const onChange = (event: any) => {
         dispatch(teacherAction.onChangeAddress(event.target))
@@ -14,8 +14,7 @@ export const AddressForm = (pros: FormProps) => {
 
     const onSubmit = async (event: any) => {
         event.preventDefault()
-        await updateAddress()
-        await findTeacherByID(teacher.id)
+        pros.btnText === 'Submit' ? (newAddress()) : (await updateAddress())
     }
 
     return (
@@ -50,7 +49,7 @@ export const AddressForm = (pros: FormProps) => {
                 <div className="form-group">
                     <input type="text"
                            name='zip'
-                           placeholder={`Enter zipcode ${pros.btnText === 'Update' ? `( ${address.zip} ) ` : ''}`}
+                           placeholder={`Enter zip code ${pros.btnText === 'Update' ? `( ${address.zip} ) ` : ''}`}
                            onChange={onChange}/>
                 </div>
                 {

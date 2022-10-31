@@ -20,6 +20,7 @@ export interface TeacherInitialState {
         email: string
         password: string
     }
+    courses: any[],
     addresses: any[],
     address: Address,
     message: any,

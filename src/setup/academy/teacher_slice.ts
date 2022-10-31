@@ -24,6 +24,7 @@ const initialState: TeacherInitialState = {
         name: "",
         phone: ""
     },
+    courses: [],
     teachers: [],
     message: {},
     error: {},
@@ -49,6 +50,9 @@ const teacherSlice = createSlice({
         setAddresses: (state, action) => {
             state.addresses = action.payload[0].address
         },
+        setCourse: (state, action) => {
+            state.courses = action.payload[0].courses
+        },
         onChangeAddress: (state, action) => {
             const inputValue = action.payload
             state.address[inputValue.name as keyof Object] = inputValue.value
@@ -56,7 +60,7 @@ const teacherSlice = createSlice({
         setSelectedAddress: (state, action) => {
             state.address = action.payload
         },
-        initTeacher: (state, action) => {
+        initTeacher: (state) => {
             state.teacher = reSetTeacher
         },
         setErrorMessage: (state, action) => {
