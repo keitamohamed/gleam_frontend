@@ -1,8 +1,62 @@
 @import url("https://fonts.googleapis.com/css2?family=Hurricane&family=Lato:wght@300&family=Open+Sans:wght@300&family=Roboto:ital,wght@0,100;0,300;1,100&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Hurricane&family=Lato:wght@300&family=Open+Sans:wght@300&family=Roboto:ital,wght@0,100;0,300;1,100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hurricane&family=Lato:wght@300&family=Open+Sans:wght@300&family=Roboto:ital,wght@0,100;0,300;1,100&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.academic .layout {
+  padding: 1em 0;
+  width: min(100% - 2rem);
+  margin-inline: auto;
+}
+.academic .layout .main {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+}
+.academic .layout .main .major_card {
+  width: 100%;
+  padding: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px, rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
+  min-height: 100px;
+}
+.academic .layout .main .major_card .body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  place-items: center;
+}
+.academic .layout .main .major_card .body h3 {
+  width: 100%;
+  margin: 0 auto;
+}
+.academic .layout .main .major_card:hover {
+  color: #fff;
+  background: #929AAB;
+}
+
+.major .title_container {
+  background: #929AAB;
+  padding: 10px;
+  text-align: left;
+}
+.major .title_container h2 {
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: left;
+  color: #fff;
+}
+.major .layout {
+  display: grid;
+}
+.major .layout .main .accordion {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -89,6 +143,22 @@ svg {
 .card .body .text_container h5, .card .body .text_container p {
   font-size: 0.8em;
 }
+.card .body .text_container .main p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.card .body .text_container li {
+  list-style: none;
+  font-size: 1.6em;
+}
+.card .body .text_container li .credit {
+  font-size: 0.6em;
+  color: #929AAB;
+}
 .card .body .icons {
   padding-top: 10px;
   display: flex;
@@ -131,8 +201,7 @@ svg {
 }
 .card_c .main .body li {
   text-align: left;
-  font-weight: bold;
-  font-size: 1.6em;
+  font-size: 1.5em;
 }
 .card_c .main .body li span {
   color: #929AAB;

@@ -1,18 +1,22 @@
 import {HiSpeakerphone} from "react-icons/hi";
 import {AiFillFileAdd, AiFillFolderAdd} from "react-icons/ai";
 import {BsChatSquareText} from "react-icons/bs";
+import {CardProps} from "../../interface/interface";
 
-export const Card = () => {
+export const Card = (props: CardProps) => {
 
     return (
-        <div className="card">
+        <section className="card">
             <div className="header">
             </div>
             <div className="body">
                 <div className="text_container">
-                    <h2>History 101</h2>
-                    <h5>HIST-101</h5>
-                    <p>Spring 2019</p>
+                    <h2>{props.id}</h2>
+                    <h5>{props.name}</h5>
+                    <div className="main">
+                        <p>{props.description}</p>
+                    </div>
+                    <li><span className='credit'>Credit: </span>{props.credit}</li>
                 </div>
                 <div className="icons">
                     <HiSpeakerphone/>
@@ -21,6 +25,6 @@ export const Card = () => {
                     <AiFillFolderAdd/>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }

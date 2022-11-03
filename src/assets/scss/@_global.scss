@@ -81,6 +81,7 @@ svg {
     height: 80px;
     background: green;
   }
+
   .body {
     padding: 10px;
 
@@ -97,6 +98,27 @@ svg {
 
       h5, p {
         font-size: .8em;
+      }
+
+      .main {
+        p {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 4;
+          line-clamp: 2;
+          -webkit-box-orient: vertical;
+        }
+      }
+
+      li {
+        list-style: none;
+        font-size: 1.6em;
+
+        .credit {
+          font-size: .6em;
+          color: $fade_white;
+        }
       }
     }
 
@@ -158,8 +180,7 @@ svg {
 
       li {
         text-align: left;
-        font-weight: bold;
-        font-size: 1.6em;
+        font-size: 1.5em;
 
         span {
           color: $fade_white;

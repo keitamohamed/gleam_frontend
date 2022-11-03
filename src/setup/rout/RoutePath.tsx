@@ -4,6 +4,8 @@ import {Student} from "../../component/page/student";
 import {Teacher} from "../../component/page/teacher";
 import {Login} from "../../component/page/login";
 import {Teacher_Profile} from "../../component/sup_page/teacher_profile";
+import {Academics} from "../../component/page/academics";
+import {Major} from "../../component/page/major";
 
 export const routePath = [
     {
@@ -40,6 +42,20 @@ export const routePath = [
         protected: true,
         showLink: false,
         component: Teacher_Profile
+    },
+    {
+        name: 'Academics',
+        path: '/academics',
+        protected: false,
+        showLink: false,
+        component: Academics
+    },
+    {
+        name: 'Major',
+        path: '/academics/major',
+        protected: false,
+        showLink: false,
+        component: Major
     },
     {
         name: "login",

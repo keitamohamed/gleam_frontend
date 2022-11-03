@@ -6,6 +6,9 @@ export const ApiPath = {
     DELETE_ADDRESS: (id: number, aID: number, path: string) => `${path}/delete-address/${id}/${aID}`,
 
     // TEACHER API PATH
-    UPDATE_TEACHER_ADDRESS: ("teacher/update-address")
+    UPDATE_TEACHER_ADDRESS: ("teacher/update-address"),
+
+    //MAJOR
+    GET_MAJOR: ('major/lists')
 
 }

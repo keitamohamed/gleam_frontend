@@ -5,10 +5,12 @@ import {DashboardContext} from "../../setup/context/Context";
 import {Card} from "../reusable/course_card";
 import {Teacher_Profile} from "../sup_page/teacher_profile";
 import {useTeacher} from "../../hook/useTeacher";
+import {useAppDispatch, useAppStore} from "../../setup/academy/useReduxHook";
 
 export const Teacher = () => {
-    const dash = useContext(DashboardContext)
     const {} = useTeacher()
+    const dash = useContext(DashboardContext)
+    const {courses} = useAppStore((state) => state.teacher)
 
     return (
         <div className={"teacher_layout sm:space-y-2 sm:space-x-2 md:h-screen md:grid md:grid-cols-9"}>
@@ -20,7 +22,14 @@ export const Teacher = () => {
                         <Teacher_Profile />
                         :
                         dash.getAction().displayName == 'dashboard' ?
-                            <><Card/> <Card/></>
+                            courses.map((course, index) => {
+                                return <Card
+                                    key={`${course.id}_${index}`}
+                                    id={course.id}
+                                    name={course.name}
+                                    description={course.description}
+                                    credit={course.credit}  />
+                            })
                         : <h1>H1 value</h1>
                 }
             </div>

@@ -1,5 +1,6 @@
-import {TeacherInitialState} from "../../interface/interface_a";
 import {createSlice} from "@reduxjs/toolkit";
+
+import {TeacherInitialState} from "../../interface/interface_a";
 
 const reSetTeacher: TeacherInitialState["teacher"] = {
     id: 0,

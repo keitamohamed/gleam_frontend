@@ -29,5 +29,24 @@ export interface CardProps {
     name?: string,
     description?: string,
     credit?: number
-
 }
+
+interface Major {
+    majorID?: number,
+    name?: string,
+    description?: string,
+}
+
+export interface Course {
+    name?: string,
+    description?: string,
+    credit?: number
+}
+
+export interface AcademicProperty {
+    major?: Major,
+    majors?: Major[],
+    course?: Course,
+    courses?: Course[],
+}
+

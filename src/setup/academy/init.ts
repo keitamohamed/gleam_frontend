@@ -2,9 +2,11 @@ import {configureStore, combineReducers, AnyAction} from '@reduxjs/toolkit'
 import thunk from "redux-thunk";
 
 import teacherSlice from "./teacher_slice";
+import academicSlice from "./academics_slice";
 
 const reducer = combineReducers({
-    teacher: teacherSlice.reducer
+    academics: academicSlice.reducer,
+    teacher: teacherSlice.reducer,
 })
 
 const rootReducer = (state: any, action: AnyAction) => {
