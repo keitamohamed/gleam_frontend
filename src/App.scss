@@ -64,12 +64,24 @@
 
   .layout {
     display: grid;
+    padding: 1em 15px 0;
 
     .main {
 
-      .accordion {
+    }
+
+    .accordion {
+      display: grid;
+
+      .accordion-tabs {
         display: grid;
-        grid-template-columns: repeat(2, 1fr)
+        grid-gap: 1em;
+        border-bottom: none;
+
+        li {
+          width: 100%;
+          border: 1px solid $border_color;
+        }
       }
     }
   }

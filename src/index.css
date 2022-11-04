@@ -51,10 +51,19 @@
 }
 .major .layout {
   display: grid;
+  padding: 1em 15px 0;
 }
-.major .layout .main .accordion {
+.major .layout .accordion {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+}
+.major .layout .accordion .accordion-tabs {
+  display: grid;
+  grid-gap: 1em;
+  border-bottom: none;
+}
+.major .layout .accordion .accordion-tabs li {
+  width: 100%;
+  border: 1px solid #B2B2B2;
 }
 
 input:-webkit-autofill,
@@ -332,6 +341,9 @@ svg {
 .accordion .accordion-content .tab-section {
   display: none;
   width: 100%;
+}
+.accordion .accordion-content .tab-section .description {
+  text-align: left;
 }
 .accordion .accordion-content .activate_section {
   display: grid;
