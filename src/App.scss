@@ -66,8 +66,32 @@
     display: grid;
     padding: 1em 15px 0;
 
-    .main {
+    .sidenav {
+      text-align: left;
+       * {
+         text-align: left;
+         font-family: $font-family-lato;
+       }
 
+      h2 {
+        border-bottom: 1px dotted $border_color;
+        padding-bottom: 2px;
+        font-size: 1.2em;
+        margin-bottom: .5em;
+      }
+
+      h5 {
+        font-weight: bold;
+        font-size: 1em;
+      }
+
+      .information {
+        padding-top: 20px;
+
+        span {
+          font-size: .8em;
+        }
+      }
     }
 
     .accordion {
@@ -98,9 +122,17 @@
         li {
           border: 1px solid $border_color;
           text-align: left;
-          padding: 5px 15px;
+          padding: 5px 0;
           cursor: pointer;
           font-size: 13px;
+
+          &:first-child {
+            padding-left: 15px;
+          }
+
+          &:last-child {
+            padding-right: 15px;
+          }
         }
 
         .course-title-container {
@@ -158,7 +190,11 @@
           border: none;
 
           &:nth-child(odd) {
-            background: $table-background-color;
+            background: $tab-background-color;
+          }
+
+          &:hover {
+            background: $tab-hover-bg-color;
           }
         }
 
@@ -177,6 +213,20 @@
               font-size: 1em;
               font-weight: 900;
             }
+          }
+        }
+
+        .subject-note {
+          h5 {
+            text-align: left;
+            margin-bottom: .5em;
+            color: $fade_white;
+          }
+
+          p {
+            text-align: left;
+            font-size: .9em;
+            font-family: $font-family-lato;
           }
         }
       }

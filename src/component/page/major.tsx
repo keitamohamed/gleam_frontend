@@ -2,6 +2,7 @@ import {useContext, useEffect} from "react";
 import {GoPlusSmall} from 'react-icons/go'
 import {HiOutlineMinus} from 'react-icons/hi'
 
+import {Course} from "../../interface/interface";
 import {useAppDispatch, useAppStore} from "../../setup/academy/useReduxHook";
 import {DashboardContext} from "../../setup/context/Context";
 import {accordion, courseAccordion} from "../../util/accordion";
@@ -21,7 +22,7 @@ export const Major = () => {
         dispatch(academicAction.setCourses(subject?.courses))
     }
 
-    const getCourseTotalCredit = () => {
+    const getCourseTotalCredit = (courses: Course[]) => {
         return courses?.reduce((accumulator, course) => {
             return accumulator + course.credit!
         }, 0)
@@ -39,7 +40,13 @@ export const Major = () => {
             </div>
             <div className="layout grid sm:grid-cols-1 md:grid-cols-12 gap-2">
                 <div className="sidenav col-span-4">
-                    <h2>This is a side nav</h2>
+                    <h2>Contact Information</h2>
+                    <h5>Academic Advising</h5>
+                    <div className="information">
+                        <p><span>Phone:</span> 540-000-1111</p>
+                        <p><span>Email:</span> gleam@email.gu.edu</p>
+                        <p><span>Website:</span> gleam.edu/computer-science</p>
+                    </div>
                 </div>
                 <div className="accordion col-span-8">
                     <div className="accordion-tabs s:!grid-cols-1 sm:!grid-cols-2 md:!grid-cols-3">
@@ -65,8 +72,8 @@ export const Major = () => {
                         <section className="tab-section" data-actab-id='2'>
                             <div className="content">
                                 {
-                                    subjects!.map(subject => {
-                                        return <div className={`subject-content`}>
+                                    subjects!.map((subject, index) => {
+                                        return <div className={`subject-content`} key={subject.subjectID}>
                                             <div className="course-title-container"
                                                  data-actab-id={subject.subjectID}>
                                                 <li className='course-title'
@@ -74,11 +81,11 @@ export const Major = () => {
                                                     onClick={() => selectedSubject(subject.subjectID!)}>{subject.name}
                                                 </li>
                                                 <li className='icon-container'>
-                                                    <li className='icon activate'
+                                                    <li className='icon expand activate'
                                                         data-actab-id={subject.subjectID}
                                                         onClick={() => selectedSubject(subject.subjectID!)}>
                                                         Expand <GoPlusSmall/></li>
-                                                    <li className='icon'
+                                                    <li className='icon hide'
                                                         data-actab-id={subject.subjectID}
                                                         onClick={() => selectedSubject(subject.subjectID!)}>
                                                         Hide <HiOutlineMinus/></li>
@@ -87,7 +94,7 @@ export const Major = () => {
                                             <div className="courses-content" data-actab-id={subject.subjectID}>
                                                 <div className="course">
                                                     {
-                                                        courses?.map((course, index) => {
+                                                        subject.courses?.map((course, index) => {
                                                             return <li key={course.id}>{course.name}</li>
                                                         })
                                                     }
@@ -96,9 +103,13 @@ export const Major = () => {
                                                     <li>Total Credits:</li>
                                                     <li>
                                                         {
-                                                            getCourseTotalCredit()
+                                                            getCourseTotalCredit(subject.courses!)
                                                         }
                                                     </li>
+                                                </div>
+                                                <div className="subject-note">
+                                                    <h5>Note</h5>
+                                                    <p>{subject.description}</p>
                                                 </div>
                                             </div>
                                         </div>
