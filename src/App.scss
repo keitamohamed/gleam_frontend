@@ -75,13 +75,114 @@
 
       .accordion-tabs {
         display: grid;
-        grid-gap: 1em;
+        grid-gap: .5em;
         border-bottom: none;
 
         li {
           width: 100%;
           border: 1px solid $border_color;
+          padding: 3px 10px;
+          font-size: .9em;
         }
+      }
+    }
+  }
+
+  .accordion-content {
+
+    .tab-section {
+
+      .subject-content {
+        padding-top: 10px;
+
+        li {
+          border: 1px solid $border_color;
+          text-align: left;
+          padding: 5px 15px;
+          cursor: pointer;
+          font-size: 13px;
+        }
+
+        .course-title-container {
+          background: $fade_white;
+          display: inline-flex;
+
+          li {
+            border: none;
+          }
+
+          .course-title {
+            color: $color_white;
+            font-size: 1em;
+            text-transform: capitalize;
+          }
+
+          .icon-container {
+            display: inline-flex;
+            place-items: flex-end;
+            justify-content: flex-end;
+
+            .icon {
+              display: none;
+              padding: 0;
+              text-align: right;
+              width: 100%;
+              place-items: flex-end;
+              justify-content: flex-end;
+              color: $color_white;
+
+              * {
+                color: $color_white;
+              }
+
+              svg {
+                width: fit-content;
+              }
+            }
+
+            .icon.activate {
+              display: inline-flex;
+            }
+          }
+        }
+      }
+
+      .courses-content {
+        display: none;
+        text-align: left;
+        padding: 20px 20px 10px 20px;
+
+        li {
+          text-align: left;
+          margin-bottom: .5em;
+          border: none;
+
+          &:nth-child(odd) {
+            background: $table-background-color;
+          }
+        }
+
+        .courses-credit {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+
+          li {
+            border: none;
+            font-weight: bold;
+            font-family: $font-family-open;
+            background: none;
+
+            &:last-child {
+              text-align: right;
+              font-size: 1em;
+              font-weight: 900;
+            }
+          }
+        }
+      }
+
+      .courses-content.activate_section {
+        display: block;
       }
     }
   }

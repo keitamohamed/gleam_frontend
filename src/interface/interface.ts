@@ -35,17 +35,29 @@ interface Major {
     majorID?: number,
     name?: string,
     description?: string,
+    subjects?: Subject
 }
 
-export interface Course {
+interface Subject {
+    subjectID?: number,
     name?: string,
     description?: string,
     credit?: number
+    courses?: Course[]
+}
+
+export interface Course {
+    id?: number,
+    name?: string,
+    description?: string,
+    credit?: number;
 }
 
 export interface AcademicProperty {
     major?: Major,
     majors?: Major[],
+    subject?: Subject,
+    subjects?: Subject[],
     course?: Course,
     courses?: Course[],
 }

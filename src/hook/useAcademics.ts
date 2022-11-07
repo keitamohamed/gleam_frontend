@@ -19,6 +19,7 @@ export const useAcademics = () => {
     const setSelectedMajor = (id: number) => {
         const major = majors?.find(m => m.majorID == id)
         dispatch(academicAction.setMajor(major))
+        dispatch(academicAction.setSubjects(major?.subjects))
     }
 
     const fetchAcademics = () => {

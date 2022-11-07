@@ -6,7 +6,9 @@ const initialState: AcademicProperty = {
     course: {},
     courses: [],
     major: {},
-    majors: []
+    majors: [],
+    subject: {},
+    subjects: [],
 
 }
 
@@ -19,6 +21,12 @@ const academicSlice = createSlice({
         },
         setMajors: (state, action) => {
             state.majors = action.payload
+        },
+        setSubject: (state, action) => {
+            state.subject = action.payload
+        },
+        setSubjects: (state, action) => {
+            state.subjects = action.payload
         },
         setCourses: (state, action) => {
             state.courses = action.payload

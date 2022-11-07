@@ -352,6 +352,21 @@ svg {
 
       .description {
         text-align: left;
+        font-size: 14px;
+
+        ul {
+          padding: 15px;
+        }
+
+        p {
+          text-align: left;
+        }
+
+        .list-style {
+          margin-top: .5em;
+          list-style: disc;
+          text-align: left;
+        }
       }
     }
 
