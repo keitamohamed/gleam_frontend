@@ -237,3 +237,38 @@
     }
   }
 }
+
+.admin {
+
+  .layout {
+
+    .main {
+
+      .content {
+        padding:15px;
+
+        .content-top {
+          display: grid;
+
+          .card {
+            display: flex;
+            height: 80px;
+            justify-content: center;
+
+            h1 {
+              font-family: $font-family-roboto;
+              font-size: 1.4em;
+              font-weight: bold;
+
+              span {
+                font-size: .6em;
+                color: $fade_white;
+                padding-right: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

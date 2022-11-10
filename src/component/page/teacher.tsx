@@ -16,7 +16,7 @@ export const Teacher = () => {
         <div className={"teacher_layout sm:space-y-2 sm:space-x-2 md:h-screen md:grid md:grid-cols-9"}>
             <SideNave/>
             <div className="main grid grid-cols-2 md:grid-cols-3
-            md:col-span-6 justify-center place-items-center sm:mt-2 gap-2 p-2">
+            md:col-span-6 justify-center sm:mt-2 gap-1">
                 {
                     dash.getAction().displayName == 'account' ?
                         <Teacher_Profile />

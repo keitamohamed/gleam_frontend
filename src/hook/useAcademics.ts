@@ -2,6 +2,7 @@ import {useAppDispatch, useAppStore} from "../setup/academy/useReduxHook";
 import {academicAction} from "../setup/academy/academics_slice";
 import {GET_REQUEST} from "../api/Request";
 import {ApiPath} from "../api/path";
+import {Course} from "../interface/interface";
 
 export const useAcademics = () => {
     const dispatch = useAppDispatch()
@@ -11,9 +12,14 @@ export const useAcademics = () => {
         dispatch(academicAction.setMajors(props))
     }
 
+    const setCourse = (props: Course[]) => {
+        dispatch(academicAction.setCourses(props))
+    }
+
     const setMessage = () => {}
 
     const setErrorMessage = () => {
+
     }
 
     const setSelectedMajor = (id: number) => {
@@ -22,9 +28,12 @@ export const useAcademics = () => {
         dispatch(academicAction.setSubjects(major?.subjects))
     }
 
-    const fetchAcademics = () => {
+    const fetchAcademics = async () => {
         // @ts-ignore
-        dispatch(GET_REQUEST(null, ApiPath.GET_MAJOR, setMajors, setMessage))
+        await dispatch(GET_REQUEST(null, ApiPath.GET_MAJOR, setMajors, setMessage))
+
+        // @ts-ignore
+        dispatch(GET_REQUEST(null, ApiPath.GET_COURSES, setCourse, setMessage))
     }
 
 

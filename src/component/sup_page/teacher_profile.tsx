@@ -102,7 +102,7 @@ export const Teacher_Profile = () => {
                             <li className="accordion-tab" data-actab-id='4' onClick={setActionType}>Edit</li>
                         </section>
                         <div className="accordion-content">
-                            <section className="tab-section card_container  s:grid-cols-1 sm:grid-cols-2 w-full activate_section"
+                            <section className="tab-section card_container s:grid-cols-1 sm:grid-cols-2 gap-2 w-full activate_section"
                                      data-actab-id='1'>
                                 {
                                     courses.map((course, index) => {
@@ -133,7 +133,7 @@ export const Teacher_Profile = () => {
                                             {
                                                 addresses.map((a, index) => {
                                                     return (
-                                                        <section className="address md:!w-4/6" key={`${index}_${a.state}`}>
+                                                        <section className="address md:!w-full" key={`${index}_${a.state}`}>
                                                             <div className="edit_container md:!w-2/6 md:float-right md:mb-4">
                                                                 <li onClick={() => setSelectedAddress(a.addressID, 'editAddress')}>
                                                                     <AiOutlineEdit/>

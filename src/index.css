@@ -186,6 +186,28 @@
   display: block;
 }
 
+.admin .layout .main .content {
+  padding: 15px;
+}
+.admin .layout .main .content .content-top {
+  display: grid;
+}
+.admin .layout .main .content .content-top .card {
+  display: flex;
+  height: 80px;
+  justify-content: center;
+}
+.admin .layout .main .content .content-top .card h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+.admin .layout .main .content .content-top .card h1 span {
+  font-size: 0.6em;
+  color: #929AAB;
+  padding-right: 15px;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -376,7 +398,7 @@ svg {
   font-size: 0.8em;
 }
 .profile .left_side .information .add_:after {
-  content: "________________________________";
+  content: "";
   display: inline-block;
   width: 100px;
   position: absolute;

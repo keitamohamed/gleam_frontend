@@ -6,7 +6,6 @@ import {Course} from "../../interface/interface";
 import {useAppDispatch, useAppStore} from "../../setup/academy/useReduxHook";
 import {DashboardContext} from "../../setup/context/Context";
 import {accordion, courseAccordion} from "../../util/accordion";
-import {academicAction} from "../../setup/academy/academics_slice";
 
 export const Major = () => {
     const dashCtx = useContext(DashboardContext)
@@ -19,11 +18,17 @@ export const Major = () => {
 
     const selectedSubject = (id: number) => {
         const subject = subjects?.find(subject => subject.subjectID === id)
-        dispatch(academicAction.setCourses(subject?.courses))
+        // dispatch(academicAction.setCourses(subject?.courses))
     }
 
-    const getCourseTotalCredit = (courses: Course[]) => {
-        return courses?.reduce((accumulator, course) => {
+    const getCourseTotalCredit = (subjectsCourse: Course[]) => {
+        const list: Course[] = []
+        courses?.find(course => {
+            subjectsCourse.map(id => {
+                return id === course.id ? list.push(course) : 0
+            })
+        })
+        return list?.reduce((accumulator, course) => {
             return accumulator + course.credit!
         }, 0)
     }
@@ -78,24 +83,26 @@ export const Major = () => {
                                                  data-actab-id={subject.subjectID}>
                                                 <li className='course-title'
                                                     data-actab-id={subject.subjectID}
-                                                    onClick={() => selectedSubject(subject.subjectID!)}>{subject.name}
+                                                    >{subject.name}
                                                 </li>
                                                 <li className='icon-container'>
                                                     <li className='icon expand activate'
                                                         data-actab-id={subject.subjectID}
-                                                        onClick={() => selectedSubject(subject.subjectID!)}>
+                                                        >
                                                         Expand <GoPlusSmall/></li>
                                                     <li className='icon hide'
                                                         data-actab-id={subject.subjectID}
-                                                        onClick={() => selectedSubject(subject.subjectID!)}>
+                                                    >
                                                         Hide <HiOutlineMinus/></li>
                                                 </li>
                                             </div>
                                             <div className="courses-content" data-actab-id={subject.subjectID}>
                                                 <div className="course">
                                                     {
-                                                        subject.courses?.map((course, index) => {
-                                                            return <li key={course.id}>{course.name}</li>
+                                                        subject.courses?.map((subCourse) => {
+                                                            return courses?.map((course) => {
+                                                                return subCourse == course.id || subCourse.id == course.id ? <li key={course.id}>{course.name}</li> : <></>
+                                                            })
                                                         })
                                                     }
                                                 </div>

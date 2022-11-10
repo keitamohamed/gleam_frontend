@@ -9,6 +9,9 @@ export const ApiPath = {
     UPDATE_TEACHER_ADDRESS: ("teacher/update-address"),
 
     //MAJOR
-    GET_MAJOR: ('major/lists')
+    GET_MAJOR: ('major/lists'),
+
+    //COURSE
+    GET_COURSES: ('course/all')
 
 }

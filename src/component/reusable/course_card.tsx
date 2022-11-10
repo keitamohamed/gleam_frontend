@@ -2,11 +2,13 @@ import {HiSpeakerphone} from "react-icons/hi";
 import {AiFillFileAdd, AiFillFolderAdd} from "react-icons/ai";
 import {BsChatSquareText} from "react-icons/bs";
 import {CardProps} from "../../interface/interface";
+import {useState} from "react";
 
 export const Card = (props: CardProps) => {
+    const [isTrue, setIsTrue] = useState(true);
 
     return (
-        <section className="card">
+        <section className={`card ${isTrue ? '!h-auto' : 'h-full'}`}>
             <div className="header">
             </div>
             <div className="body">
