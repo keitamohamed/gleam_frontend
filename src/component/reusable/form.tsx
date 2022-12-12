@@ -14,7 +14,7 @@ export const AddressForm = (pros: FormProps) => {
 
     const onSubmit = async (event: any) => {
         event.preventDefault()
-        pros.btnText === 'Submit' ? (newAddress()) : (await updateAddress())
+        pros.btnText === 'Submit' ? (await newAddress()) : (await updateAddress())
     }
 
     return (

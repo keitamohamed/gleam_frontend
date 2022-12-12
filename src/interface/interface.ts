@@ -10,6 +10,10 @@ export interface DashboardStateProps {
     show: boolean
 }
 
+export interface InvokeFunction {
+    setDisplayName: (props: string) => void
+}
+
 export interface DashboardProperty {
     getAction: () => DashboardStateProps,
     setDisplayName: (prop: string) => void,
@@ -22,6 +26,10 @@ export interface FormProps {
     btnText?: string
     actionType?: string
     action?: string
+}
+
+export interface UserFormProps extends FormProps {
+    fInterface?: string
 }
 
 export interface CardProps {

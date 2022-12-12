@@ -244,6 +244,42 @@
 
     .main {
 
+      .btn-container {
+        padding-bottom: 15px;
+        margin-bottom: 1em;
+        justify-content: space-evenly;
+
+        li {
+          list-style: none;
+          display: grid;
+          grid-template-columns: repeat(1, 1fr);
+          justify-content: space-between;
+          place-items: center;
+          cursor: pointer;
+          width: fit-content;
+
+          span {
+            width: 100%;
+            font-size: .8em;
+            padding-top: .2em;
+            color: $fade_white;
+            cursor: pointer;
+          }
+
+          &:hover {
+
+            * {
+              color: black;
+            }
+          }
+        }
+      }
+      .search-container {
+        border-bottom: 1px dotted $border_color;
+        padding: 10px;
+        margin-bottom: 1em;
+        border-radius: 5px;
+      }
       .content {
         padding:15px;
 
@@ -269,6 +305,29 @@
           }
         }
       }
+    }
+  }
+
+  .form-container {
+    width: 100%;
+
+    input {
+      border-bottom: 1px solid $border_color;
+      width: 100%;
+      padding: 2px 5px 5px;
+      text-align: left;
+    }
+
+    textarea {
+      min-width: 100%;
+      min-height: 80px;
+      border: 1px solid $border_color;
+      text-align: left;
+      padding: 10px;
+    }
+
+    input[type=submit] {
+      text-align: center;
     }
   }
 }

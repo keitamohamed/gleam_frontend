@@ -7,8 +7,9 @@ import {FiInbox} from "react-icons/fi";
 import photo from "/src/assets/image/photo.jpg"
 import {useContext} from "react";
 import {DashboardContext} from "../../setup/context/Context";
+import {InvokeFunction} from "../../interface/interface";
 
-export const SideNave = () => {
+export const SideNave = (prop: InvokeFunction) => {
     const nav = useNavigate()
     const dash = useContext(DashboardContext)
 
@@ -30,7 +31,7 @@ export const SideNave = () => {
                 </li>
                 <li className="w-full"
                     onClick={
-                    () => dash.setActionType("dashboard")}
+                    () => prop.setDisplayName("dashboard")}
                 >
                     <RiDashboardFill/>
                     <span>Dashboard</span>

@@ -186,6 +186,36 @@
   display: block;
 }
 
+.admin .layout .main .btn-container {
+  padding-bottom: 15px;
+  margin-bottom: 1em;
+  justify-content: space-evenly;
+}
+.admin .layout .main .btn-container li {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-content: space-between;
+  place-items: center;
+  cursor: pointer;
+  width: fit-content;
+}
+.admin .layout .main .btn-container li span {
+  width: 100%;
+  font-size: 0.8em;
+  padding-top: 0.2em;
+  color: #929AAB;
+  cursor: pointer;
+}
+.admin .layout .main .btn-container li:hover * {
+  color: black;
+}
+.admin .layout .main .search-container {
+  border-bottom: 1px dotted #B2B2B2;
+  padding: 10px;
+  margin-bottom: 1em;
+  border-radius: 5px;
+}
 .admin .layout .main .content {
   padding: 15px;
 }
@@ -206,6 +236,25 @@
   font-size: 0.6em;
   color: #929AAB;
   padding-right: 15px;
+}
+.admin .form-container {
+  width: 100%;
+}
+.admin .form-container input {
+  border-bottom: 1px solid #B2B2B2;
+  width: 100%;
+  padding: 2px 5px 5px;
+  text-align: left;
+}
+.admin .form-container textarea {
+  min-width: 100%;
+  min-height: 80px;
+  border: 1px solid #B2B2B2;
+  text-align: left;
+  padding: 10px;
+}
+.admin .form-container input[type=submit] {
+  text-align: center;
 }
 
 input:-webkit-autofill,
@@ -253,6 +302,7 @@ svg {
   padding: 5px 0;
   list-style: none;
   place-items: center;
+  cursor: pointer;
 }
 .side-nav .list_container li span {
   font-size: 0.7em;
@@ -586,6 +636,65 @@ svg {
 }
 .accordion .form-container form .message p {
   color: #54B435;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table tr:first-child {
+  padding-bottom: 20px;
+}
+table td {
+  text-align: left;
+  padding: 5px 10px;
+}
+table thead {
+  box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px, rgba(0, 0, 0, 0.3) 0 0.1em 0.1em -1px;
+}
+table thead td {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+table tbody {
+  overflow: hidden;
+}
+table tbody tr {
+  border-top: none;
+  padding: 15px;
+}
+table tbody tr td {
+  border: none;
+}
+table tbody tr:last-child {
+  border: none;
+}
+table tbody tr:nth-child(even) {
+  background: whitesmoke;
+}
+table tbody tr:hover {
+  background: #ebebeb;
+}
+
+.form-container {
+  width: 100%;
+}
+.form-container .form .form-group {
+  padding: 10px 15px;
+}
+.form-container .form input[type=text] {
+  width: 100%;
+  padding: 5px;
+  text-align: left;
+  border-bottom: 1px dotted #B2B2B2;
+}
+.form-container .form input[type=submit] {
+  width: 100%;
+  padding: 5px;
+  background: #3D3C42;
+  color: #fff;
 }
 
 html {
