@@ -255,6 +255,7 @@
 }
 .admin .form-container input[type=submit] {
   text-align: center;
+  cursor: pointer;
 }
 
 input:-webkit-autofill,

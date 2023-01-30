@@ -28,6 +28,19 @@ export interface FormProps {
     action?: string
 }
 
+export interface MajorStateForm {
+    name?: string,
+    description?: string
+}
+
+export interface MajorFormProperty {
+    getFormValue: () => MajorStateForm;
+    setFormValue: (prop: MajorStateForm) => void;
+    setName: (prop: string) => void;
+    setDescription: (prop: string) => void;
+
+}
+
 export interface UserFormProps extends FormProps {
     fInterface?: string
 }

@@ -1,5 +1,5 @@
 import {createContext} from "react";
-import {DashboardProperty, DashboardStateProps} from "../../interface/interface";
+import {DashboardProperty, DashboardStateProps, MajorStateForm, MajorFormProperty} from "../../interface/interface";
 
 const adminDashboardProps: DashboardProperty = {
     getAction(): DashboardStateProps {
@@ -26,5 +26,18 @@ const dashboardProps: DashboardProperty = {
     setActionType(action: string): void {}
 }
 
+const formDashProperty: MajorFormProperty = {
+    getFormValue(): MajorStateForm {
+        return {
+            name: '',
+            description: ''
+        };
+    },
+    setFormValue(prop: MajorStateForm): void {},
+    setName(props: string): void {},
+    setDescription(props: string): void {},
+}
+
 export const AdminDashboardContext = createContext(adminDashboardProps)
 export const DashboardContext = createContext(dashboardProps)
+export const FormContext = createContext(formDashProperty)
